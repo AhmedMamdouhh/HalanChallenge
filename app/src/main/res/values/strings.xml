@@ -8,4 +8,11 @@
     <string name="back">رجوع</string>
     <string name="product_details">تفاصيل المنتج</string>
     <string name="description">الوصف</string>
+
+    <!--Errors -->
+    <!-- base errors-->
+    <string name="error_no_connection">عفوًا ، لا يوجد اتصال بالشبكة</string>
+    <string name="error_message_title">خطأ!</string>
+    <string name="success_message_title">تم بنجاح</string>
+
 </resources>
