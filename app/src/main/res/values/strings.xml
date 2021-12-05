@@ -10,6 +10,13 @@
     <string name="description">الوصف</string>
 
     <!--Errors -->
+    <!-- Login -->
+    <string name="error_login_wrong_account">عفوا هذا الحساب غير موجود </string>
+    <string name="error_login_username_length">عفوا إسم المستخدم يجب ان يكون ما بين 6 إلي 15 حرف  </string>
+    <string name="error_login_not_alphanumeric">عفوا إسم المستخدم يجب ان يحتوي فقط علي حروف او ارقام</string>
+    <string name="error_login_password_length">عفوا يجب إدخال كلمة المرور </string>
+
+
     <!-- base errors-->
     <string name="error_no_connection">عفوًا ، لا يوجد اتصال بالشبكة</string>
     <string name="error_message_title">خطأ!</string>

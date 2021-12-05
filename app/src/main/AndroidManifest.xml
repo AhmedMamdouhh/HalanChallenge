@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HalanChallenge">
 
-        <activity android:name=".presentation.utils.manager.MainActivity" android:exported="true" android:launchMode="singleTask">
+        <activity android:name=".presentation.utils.manager.MainActivity"
+            android:exported="true" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
