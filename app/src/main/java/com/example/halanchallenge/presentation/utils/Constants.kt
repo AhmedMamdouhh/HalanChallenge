@@ -10,5 +10,9 @@ object Constants {
     const val DELAY_BIG = 3000
     const val DELAY_SMALL = 500L
 
+    //Login
+    const val USER_NAME_MIN_LENGTH = 6
+    const val USER_NAME_MAX_LENGTH = 15
+
     const val MESSAGE = "message"
 }

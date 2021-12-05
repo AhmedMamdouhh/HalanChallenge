@@ -117,7 +117,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     @SuppressLint("InflateParams")
     private fun initializeProgress() {
-        loadingBar = Dialog(this, R.style.Theme_AppCompat_DayNight)
+        loadingBar = Dialog(this, R.style.FullScreenDialog)
         loadingBar!!.setCancelable(false)
         loadingBar!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
         val inflater = LayoutInflater.from(this)
