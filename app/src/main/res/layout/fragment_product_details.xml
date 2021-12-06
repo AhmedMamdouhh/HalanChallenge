@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="productObject"
+            type="com.example.halanchallenge.domain.model.product.Product" />
+
+        <variable
+            name="productDetailsListener"
+            type="com.example.halanchallenge.presentation.ui.product_details.ProductDetailsFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl">
+
+        <RelativeLayout
+            android:id="@+id/rl_product_details_bar_container"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_product_details_description_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="8dp"
+                android:text="@string/product_details_title"
+                android:textAlignment="center"
+                android:textColor="@color/colorOnSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_no_connection_close"
+                android:layout_width="@dimen/dp60w"
+                android:layout_height="@dimen/dp60h"
+                android:onClick="@{()->productDetailsListener.onBackClicked()}"
+                android:padding="@dimen/dp8w"
+                android:rotation="180"
+                android:src="@drawable/ic_right_arrow" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/v_product_details_line"
+            android:layout_width="0dp"
+            android:layout_height="0.001dp"
+            android:layout_marginTop="14dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_product_details_bar_container" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_product_details_images_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintDimensionRatio="1.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_product_details_line"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_image" />
+
+        <com.arindicatorview.ARIndicatorView
+            android:id="@+id/ar_product_details_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            app:animate_indicator_scrubbing="true"
+            app:indicator_animation="@anim/zoom_in"
+            app:indicator_color="@android:color/darker_gray"
+            app:indicator_scrubbing="true"
+            app:indicator_size="15"
+            app:layout_constraintBottom_toTopOf="@+id/tv_product_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_product_details_images_list"
+            app:number_of_indicators="5"
+            app:selected_color="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="16dp"
+            android:maxEms="2"
+            android:maxLines="2"
+            android:textColor="@color/colorOnSecondary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@{productObject.productNameArabic}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_product_details_images_list"
+            tools:text="@tools:sample/lorem/random" />
+
+        <View
+            android:id="@+id/v_product_details_title_line"
+            android:layout_width="0dp"
+            android:layout_height="0.001dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_name" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_product_price_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="#FAFAFB"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_product_details_title_line">
+
+            <TextView
+                android:id="@+id/tv_product_cash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:maxLines="1"
+                android:text="@string/product_details_cash"
+                android:layout_gravity="start|center"
+                android:gravity="start|center" />
+
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:maxLines="1"
+                android:text="@{String.format(@string/product_details_price,String.valueOf(productObject.productPrice))}"
+                android:gravity="end|center"
+                android:layout_gravity="end|center"
+                tools:text="@string/product_details_price" />
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/v_product_details_price_line"
+            android:layout_width="0dp"
+            android:layout_height="0.001dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="16dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_product_price_container" />
+
+
+        <TextView
+            android:id="@+id/tv_product_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/product_details_description"
+            android:textColor="@color/colorOnSecondary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_details_description"
+            app:layout_constraintTop_toBottomOf="@+id/v_product_details_price_line" />
+
+        <ScrollView
+            android:id="@+id/tv_product_details_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:layout_marginBottom="@dimen/dp8w"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_description_title">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:scrollbars="vertical"
+            android:text="@{productObject.productDescription}"
+
+            tools:text="@tools:sample/lorem/random"  />
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

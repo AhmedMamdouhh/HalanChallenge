@@ -19,6 +19,7 @@ class ProfileViewModel @Inject constructor(
 ) :BaseViewModel() {
 
     private val _observeProductsList = MutableLiveData<Event<ArrayList<Product>>>()
+    private val _observeProductClicked = MutableLiveData<Event<Product>>()
 
     fun getProducts(token:String){
         responseManager.loading()
@@ -38,15 +39,11 @@ class ProfileViewModel @Inject constructor(
     }
 
     //Click:
-    fun onLogoutClicked(){
-
-    }
-
-    fun onMoreClicked(productId:Int){
-
-    }
+    fun onProductClicked(product:Product){ _observeProductClicked.value = Event(product) }
 
     //getters:
     val observeProductsList: LiveData<Event<ArrayList<Product>>>
         get() = _observeProductsList
+    val observeProductClicked: LiveData<Event<Product>>
+        get() = _observeProductClicked
 }

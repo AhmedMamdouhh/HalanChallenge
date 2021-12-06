@@ -12,7 +12,13 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            app:enterAnim="@android:animator/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
 
     </fragment>
 
@@ -27,8 +33,24 @@
         <argument
             android:name="userToken"
             app:argType="string" />
+        <action
+            android:id="@+id/action_profileFragment_to_productDetailsDialog"
+            app:destination="@id/productDetailsDialog"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
 
+    <!-- Products details -->
+    <fragment
+        android:id="@+id/productDetailsDialog"
+        android:name="com.example.halanchallenge.presentation.ui.product_details.ProductDetailsFragment"
+        android:label="ProductDetailsDialog" >
+        <argument
+            android:name="productObject"
+            app:argType="com.example.halanchallenge.domain.model.product.Product" />
+    </fragment>
 
 
 </navigation>

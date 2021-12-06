@@ -30,11 +30,11 @@
             android:id="@+id/lotti_no_connection_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
             android:layout_alignParentBottom="true"
-            app:lottie_rawRes="@raw/no_connection"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_autoPlay="true" />
+            app:lottie_rawRes="@raw/no_connection" />
 
 
         <TextView

@@ -1,15 +1,21 @@
 package com.example.halanchallenge.domain.model.product
 
+import android.os.Parcelable
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import com.example.halanchallenge.BR
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
-class Product:BaseObservable() {
+@Parcelize
+class Product:BaseObservable(), Parcelable {
 
+    @IgnoredOnParcel
     @SerializedName("id")
     var productId = 0
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("name_ar")
     var productNameArabic: String = ""
@@ -18,6 +24,7 @@ class Product:BaseObservable() {
             notifyPropertyChanged(BR.productNameArabic)
         }
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("name_en")
     var productNameEnglish: String = ""
@@ -26,6 +33,7 @@ class Product:BaseObservable() {
             notifyPropertyChanged(BR.productNameEnglish)
         }
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("brand")
     var productBrand: String = ""
@@ -34,6 +42,7 @@ class Product:BaseObservable() {
             notifyPropertyChanged(BR.productBrand)
         }
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("price")
     var productPrice: Double = 0.0
@@ -43,6 +52,7 @@ class Product:BaseObservable() {
         }
 
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("deal_description")
     var productDescription: String = ""
@@ -51,6 +61,7 @@ class Product:BaseObservable() {
             notifyPropertyChanged(BR.productDescription)
         }
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("image")
     var productImage: String = ""
@@ -59,6 +70,7 @@ class Product:BaseObservable() {
             notifyPropertyChanged(BR.productImage)
         }
 
+    @IgnoredOnParcel
     @get:Bindable
     @SerializedName("images")
     var productDetailsImages: ArrayList<String>? = null
