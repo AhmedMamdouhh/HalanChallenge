@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private lateinit var profileBinding: FragmentProfileBinding
-    private val profileViewModel:ProfileViewModel by viewModels()
+    private val profileViewModel: ProfileViewModel by viewModels()
     private lateinit var productsAdapter: ProductsAdapter
     private val userObjectArgs: ProfileFragmentArgs by navArgs()
 
@@ -37,13 +38,24 @@ class ProfileFragment : Fragment() {
         profileViewModel.getProducts(userObjectArgs.userToken)
 
         observeProductsList()
+        observeProductClicked()
 
         return profileBinding.root
     }
 
+    private fun observeProductClicked() {
+        profileViewModel.observeProductClicked.observe(
+            viewLifecycleOwner,
+            EventObserver { product ->
+                val productDetails =
+                    ProfileFragmentDirections.actionProfileFragmentToProductDetailsDialog(product)
+                findNavController().navigate(productDetails)
+            })
+    }
+
     private fun observeProductsList() {
-        profileViewModel.observeProductsList.observe(viewLifecycleOwner,EventObserver{
-            productsAdapter = ProductsAdapter(it,profileViewModel)
+        profileViewModel.observeProductsList.observe(viewLifecycleOwner, EventObserver {
+            productsAdapter = ProductsAdapter(it, profileViewModel)
             profileBinding.apply {
                 rvProfileProductsList.apply {
                     setHasFixedSize(true)

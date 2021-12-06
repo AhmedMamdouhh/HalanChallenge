@@ -22,4 +22,5 @@ class MainActivity : BaseActivity() {
             (supportFragmentManager.findFragmentById(R.id.hostFragment) as NavHostFragment).navController
     }
 
+
 }
