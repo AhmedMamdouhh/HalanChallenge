@@ -1,13 +1,12 @@
 package com.example.halanchallenge.data
 
-import com.example.halanchallenge.data.repository.login.LoginRepositoryGateway
+import com.example.halanchallenge.domain.model.login.LoginGateway
 import com.example.halanchallenge.domain.model.login.LoginRequest
 import com.example.halanchallenge.domain.model.login.LoginResponse
-import com.example.halanchallenge.domain.model.user.User
-import okhttp3.ResponseBody
+import com.example.halanchallenge.domain.model.profile.User
 import retrofit2.Response
 
-class LoginFakeRepository : LoginRepositoryGateway {
+class LoginFakeRepository : LoginGateway {
 
     override suspend fun requestLogin(loginRequest: LoginRequest): Response<LoginResponse> {
 

@@ -9,5 +9,26 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.halanchallenge.presentation.ui.login.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+
+    </fragment>
+
+    <!-- Profile -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.halanchallenge.presentation.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <argument
+            android:name="userObject"
+            app:argType="com.example.halanchallenge.domain.model.profile.User" />
+        <argument
+            android:name="userToken"
+            app:argType="string" />
+    </fragment>
+
+
+
 </navigation>

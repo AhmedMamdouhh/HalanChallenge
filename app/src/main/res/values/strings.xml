@@ -9,6 +9,16 @@
     <string name="product_details">تفاصيل المنتج</string>
     <string name="description">الوصف</string>
 
+    <!-- Profile-->
+    <string name="profile_email">ahmeed.mamdoouh@gmail.com</string>
+    <string name="profile_user_name">أحمد ممدوح</string>
+    <string name="profile_phone">01094093579</string>
+    <string name="profile_product_title">منتجاتي</string>
+
+    <!-- Product -->
+    <string name="product_description"> هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص، وإذا قمت بإدخال "lorem ipsum" في أي محرك بحث ستظهر العديد من المواقع الحديثة العهد في نتائج البحث. على مدى السنين ظهرت نسخ جديدة ومختلفة من نص لوريم إيبسوم، أحياناً عن طريق الصدفة، وأحياناً عن عمد كإدخال بعض العبارات الفكاهية إليها.</string>
+    <string name="product_more">المزيد</string>
+
     <!--Errors -->
     <!-- Login -->
     <string name="error_login_wrong_account">عفوا هذا الحساب غير موجود </string>

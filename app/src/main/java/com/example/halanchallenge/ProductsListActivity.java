@@ -35,7 +35,7 @@ public class ProductsListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products_list);
+        setContentView(R.layout.fragment_profile);
 
 
         Bundle bundle = getIntent().getExtras();
@@ -46,15 +46,15 @@ public class ProductsListActivity extends AppCompatActivity {
         Gson gson = new Gson();
         loginResponse = gson.fromJson(response, LoginResponse.class);
 
-        userName = findViewById(R.id.username_tv);
-        phoneNumber = findViewById(R.id.phone_number_tv);
-        email = findViewById(R.id.email_tv);
-        userIV= findViewById(R.id.user_iv);
-        logoutIV = findViewById(R.id.logoutIV);
+        userName = findViewById(R.id.tv_profile_user_name);
+        phoneNumber = findViewById(R.id.tv_profile_user_phone);
+        email = findViewById(R.id.tv_profile_user_email);
+        userIV= findViewById(R.id.iv_profile_user_image);
+        logoutIV = findViewById(R.id.iv_profile_logout);
 
         Glide.with(this).load(loginResponse.profile.image).into(userIV);
 
-        productsListRV = findViewById(R.id.products_list_rv);
+        productsListRV = findViewById(R.id.rv_profile_products_list);
 
         logoutIV.setOnClickListener(new View.OnClickListener() {
             @Override
