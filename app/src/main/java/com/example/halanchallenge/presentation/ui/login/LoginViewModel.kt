@@ -28,15 +28,17 @@ class LoginViewModel @Inject constructor(
         if (validation(loginRequest.loginUserName,loginRequest.loginPassword)) {
             responseManager.loading()
             viewModelScope.launch {
-                val response = loginUseCase.requestLoginCredentials(loginRequest)
-                if(response is Resource.Success) {
-                    responseManager.hideLoading()
-                    _observeLoginSuccess.value = Event(response.data!!)
-                }else if(response is Resource.Failed){
-                    responseManager.hideLoading()
-                    responseManager.failed(context.getString(R.string.error_general))
-                }else
-                    responseManager.noConnection()
+                when (val response = loginUseCase.requestLoginCredentials(loginRequest)) {
+                    is Resource.Success -> {
+                        responseManager.hideLoading()
+                        _observeLoginSuccess.value = Event(response.data!!)
+                    }
+                    is Resource.Failed -> {
+                        responseManager.hideLoading()
+                        responseManager.failed(context.getString(R.string.error_general))
+                    }
+                    else -> responseManager.noConnection()
+                }
             }
         }
     }

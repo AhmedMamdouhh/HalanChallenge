@@ -1,7 +1,6 @@
 package com.example.halanchallenge.data.repository.login
 
 import com.example.halanchallenge.data.remote.Api
-import com.example.halanchallenge.data.utils.BaseDataSource
 import com.example.halanchallenge.domain.model.login.LoginGateway
 import com.example.halanchallenge.domain.model.login.LoginRequest
 import javax.inject.Inject

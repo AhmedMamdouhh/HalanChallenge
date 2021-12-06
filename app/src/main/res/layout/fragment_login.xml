@@ -21,30 +21,44 @@
 
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
-            android:layout_marginTop="144dp"
             android:layout_marginEnd="14dp"
             app:layout_constraintDimensionRatio="3"
+            app:layout_constraintBottom_toTopOf="@+id/gl_login_less_than_middle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:src="@drawable/img_place_holder" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_login_less_than_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_login_middle_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_login_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="14dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="20dp"
             android:hint="@string/login_user_name"
             android:textStyle="bold"
             android:inputType="text"
             android:textDirection="rtl"
             android:text="@={loginObject.loginUserName}"
-            app:layout_constraintBottom_toTopOf="@+id/et_login_password"
+            app:layout_constraintTop_toBottomOf="@+id/gl_login_middle_screen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,15 +66,15 @@
             android:id="@+id/et_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginBottom="92dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:hint="@string/login_password"
             android:textStyle="bold"
             android:textDirection="rtl"
+            android:gravity="end"
             android:inputType="textPassword"
             android:text="@={loginObject.loginPassword}"
-            app:layout_constraintBottom_toTopOf="@+id/btn_login"
+            app:layout_constraintTop_toBottomOf="@+id/et_login_user_name"
             app:layout_constraintEnd_toEndOf="@+id/et_login_user_name"
             app:layout_constraintStart_toStartOf="@+id/et_login_user_name" />
 

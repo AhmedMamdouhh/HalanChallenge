@@ -1,6 +1,5 @@
 package com.example.halanchallenge.data.utils
 
-import android.util.Log
 import retrofit2.Response
 import java.lang.Exception
 
