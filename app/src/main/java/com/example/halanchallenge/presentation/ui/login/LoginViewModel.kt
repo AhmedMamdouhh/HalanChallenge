@@ -7,6 +7,7 @@ import com.example.halanchallenge.R
 import com.example.halanchallenge.data.utils.Resource
 import com.example.halanchallenge.domain.model.login.LoginRequest
 import com.example.halanchallenge.domain.model.login.LoginResponse
+import com.example.halanchallenge.domain.model.profile.User
 import com.example.halanchallenge.domain.use_case.LoginUseCase
 import com.example.halanchallenge.presentation.utils.Constants
 import com.example.halanchallenge.presentation.utils.Event
@@ -33,7 +34,9 @@ class LoginViewModel @Inject constructor(
                     _observeLoginSuccess.value = Event(response.data!!)
                 }else if(response is Resource.Failed){
                     responseManager.hideLoading()
-                }
+                    responseManager.failed(context.getString(R.string.error_general))
+                }else
+                    responseManager.noConnection()
             }
         }
     }

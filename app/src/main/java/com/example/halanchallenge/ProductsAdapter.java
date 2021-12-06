@@ -35,7 +35,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.product_item, parent, false);
+        View view = mInflater.inflate(R.layout.item_product, parent, false);
         return new ViewHolder(view);
     }
 
@@ -74,9 +74,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.product_item_title_tv);
+            myTextView = itemView.findViewById(R.id.tv_product_description);
             moreButton = itemView.findViewById(R.id.more_btn);
-            productImageView = itemView.findViewById(R.id.product_iv);
+            productImageView = itemView.findViewById(R.id.iv_product_image);
             itemView.setOnClickListener(this);
         }
 

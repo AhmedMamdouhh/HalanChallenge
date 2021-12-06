@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userObject"
+            type="com.example.halanchallenge.domain.model.profile.User" />
+
+        <variable
+            name="profileListener"
+            type="com.example.halanchallenge.presentation.ui.profile.ProfileViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        tools:context=".ProductsListActivity">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile_user_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_profile_products_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutDirection="rtl"
+                android:paddingBottom="12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_profile_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:onClick="@{()-> profileListener.onLogoutClicked()}"
+                    android:src="@drawable/ic_outlined_logout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.889"
+                    app:layout_constraintStart_toEndOf="@+id/tv_profile_user_name"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_profile_user_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginBottom="31dp"
+                    imageUrl="@{userObject.userImage}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/tv_profile_user_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:textSize="16sp"
+                    android:text="@{userObject.userEmail}"
+                    app:layout_constraintStart_toEndOf="@+id/iv_profile_user_image"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_user_phone"
+                    tools:text="@string/profile_email" />
+
+                <TextView
+                    android:id="@+id/tv_profile_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:textColor="@color/colorOnSecondary"
+                    android:textSize="20sp"
+                    android:text="@{userObject.userName}"
+                    app:layout_constraintStart_toEndOf="@+id/iv_profile_user_image"
+                    app:layout_constraintTop_toTopOf="@+id/iv_profile_user_image"
+                    tools:text="@string/profile_user_name" />
+
+                <TextView
+                    android:id="@+id/tv_profile_user_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    android:text="@{userObject.userPhone}"
+                    app:layout_constraintStart_toEndOf="@+id/iv_profile_user_image"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_profile_user_name"
+                    tools:text="@string/profile_phone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_profile_products_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/profile_product_title"
+            android:textColor="@color/colorOnSecondary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_profile_user_container"
+            tools:layout_editor_absoluteY="211dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_profile_products_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_products_title"
+            tools:listitem="@layout/item_product">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
