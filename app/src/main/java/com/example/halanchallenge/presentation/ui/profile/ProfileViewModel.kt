@@ -3,6 +3,7 @@ package com.example.halanchallenge.presentation.ui.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.halanchallenge.R
 import com.example.halanchallenge.data.utils.Resource
 import com.example.halanchallenge.domain.model.product.Product
 import com.example.halanchallenge.domain.use_case.ProductsUseCase
@@ -22,13 +23,16 @@ class ProfileViewModel @Inject constructor(
     fun getProducts(token:String){
         responseManager.loading()
         viewModelScope.launch {
-            val response = productsUseCase.getProducts("Bearer $token")
-
-            if(response is Resource.Success){
-                responseManager.hideLoading()
-                _observeProductsList.value = Event(response.data!!.products)
-            }else if (response is Resource.Failed){
-                responseManager.hideLoading()
+            when (val response = productsUseCase.getProducts("Bearer $token")) {
+                is Resource.Success -> {
+                    responseManager.hideLoading()
+                    _observeProductsList.value = Event(response.data!!.products)
+                }
+                is Resource.Failed -> {
+                    responseManager.hideLoading()
+                    responseManager.failed(context.getString(R.string.error_general))
+                }
+                else -> responseManager.noConnection()
             }
         }
     }

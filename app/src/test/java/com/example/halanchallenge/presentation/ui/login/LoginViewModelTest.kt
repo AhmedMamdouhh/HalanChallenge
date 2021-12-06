@@ -52,6 +52,7 @@ class LoginViewModelTest {
         assert(result is Resource.Failed)
     }
 
+
     @Test
     fun `isCorrectUserNameLength() with correct user name then return true`() {
         //Arrange:
@@ -100,6 +101,7 @@ class LoginViewModelTest {
         assertThat(result).isFalse()
     }
 
+
     @Test
     fun `isCorrectPasswordLength() with correct password then return true`() {
         //Arrange:
@@ -123,6 +125,7 @@ class LoginViewModelTest {
         //Assert
         assertThat(result).isFalse()
     }
+
 
     @Test
     fun `isCorrectAlphanumeric() with correct user name then return true`() {

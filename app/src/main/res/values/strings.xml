@@ -31,5 +31,6 @@
     <string name="error_no_connection">عفوًا ، لا يوجد اتصال بالشبكة</string>
     <string name="error_message_title">خطأ!</string>
     <string name="success_message_title">تم بنجاح</string>
+    <string name="error_general">حدث خطأ ما برجاء المحاولة مرة اخري!</string>
 
 </resources>

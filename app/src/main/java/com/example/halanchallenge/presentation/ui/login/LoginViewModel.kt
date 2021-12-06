@@ -34,8 +34,9 @@ class LoginViewModel @Inject constructor(
                     _observeLoginSuccess.value = Event(response.data!!)
                 }else if(response is Resource.Failed){
                     responseManager.hideLoading()
-                    responseManager.failed("BEEFGEFE")
-                }
+                    responseManager.failed(context.getString(R.string.error_general))
+                }else
+                    responseManager.noConnection()
             }
         }
     }
